@@ -31,6 +31,17 @@ UserSchema.statics.findByEmailAndPhone = async ({email, phoneNumber}) => {
          return false;   //that is user doesn't exist & they are new
 };
 
+UserSchema.statics.findByEmailAndPassword = async ({email, password}) => {
+    //check whether email and password exist
+    const checkUserByEmail  = await UserModel.findOne({ email });
+    if(!checkUserByEmail) throw new Error("user does not exist!!");
+
+    //compare password
+   const doesPasswordMatch = await bcrypt.compare(password, checkUserByEmail.password);
+   if(!doesPasswordMatch) throw new Error ("Invalid Password!!");
+
+   return checkUserByEmail;
+};
 
 UserSchema.pre("save", function(next){
    const user = this;
