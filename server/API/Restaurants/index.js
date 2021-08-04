@@ -15,7 +15,7 @@ Access  Public
 Method  GET
 */
 
-Router.get("/", (req, res) => {
+Router.get("/", async (req, res) => {
 try {
     const { city } = req.query;  //another method with the use of ?
     const restaurant = await RestaurantModel.find({ city }); 
