@@ -8,6 +8,10 @@ import passport from "passport";
 import { UserModel } from "../../database/user";
 
 
+//validation
+import { ValidateSignup, ValidateSignin } from "../../validation/auth";
+
+
 const Router = express.Router();
 
 /* 
@@ -19,9 +23,14 @@ Method  POST
 */
 
 Router.post("/signup", async (request, response) => {
+
+
+
    try{ 
+
+     await ValidateSignup(request.body.credentials);
       
-    await UserModel.findByEmailAndPhone(request.body.credentials);
+     await UserModel.findByEmailAndPhone(request.body.credentials);
       
       //save to DB
      const newUser =  await UserModel.create(request.body.credentials);
@@ -38,7 +47,7 @@ Router.post("/signup", async (request, response) => {
 });
 
 /* 
-Route   /signup
+Route   /signin
 Des     Signin with email and password
 Params  none
 Access  Public
@@ -48,7 +57,9 @@ Method  POST
 Router.post("/signin", async (request, response) => {
     try{ 
        
-     const checkUserByEmail = await UserModel.findByEmailAndPassword(request.body.credentials);
+       await ValidateSignin(request.body.credentials);
+       
+       const checkUserByEmail = await UserModel.findByEmailAndPassword(request.body.credentials);
 
        const token = checkUserByEmail.generateJwtToken();
 
