@@ -5,6 +5,10 @@ import passport from "passport";
 //Database modal
 import { ReviewModel } from "../../database/allModels";
 
+
+//validation
+import { ValidateReviewId, ValidateNewReview } from "../../validation/review";
+
 const Router = express.Router();
 
 /* 
@@ -18,6 +22,8 @@ Method  GET
 
 Router.post("/new", async(req, res) => {
     try {
+        await ValidateNewReview(req.body);
+
         const { reviewData } = req.body;
 
         await ReviewModel.create(reviewData);
@@ -31,7 +37,7 @@ Router.post("/new", async(req, res) => {
 
 /* 
 Route   /delete/:_id
-Des     add new food review or rating
+Des     delete food review or rating
 Params  _id
 Body    none
 Access  Public
@@ -40,6 +46,8 @@ Method  DELETE
 
 Router.delete("/delete/:_id", async(req,res) => {
     try {
+         await ValidateReviewId(req.params);
+
          const { _id } = req.params;
 
          await ReviewModel.findByIdAndDelete( _id );
