@@ -18,9 +18,6 @@ const Router = express.Router();
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
-
-
-
 /* 
 Route   /
 Des     Uploads given image to s3 bucket, and saves file link to mogodb
