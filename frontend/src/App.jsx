@@ -3,10 +3,9 @@ import {Route, Redirect} from "react-router-dom";
 
 //HOC
 import HomeLayoutHOC from "./HOC/Home.Hoc";
+import RestaurantLayoutHOC from "./HOC/Restaurant.HOC";
 
-//component
 import temp from "./Components/temp";
-
 //pages
 import Home from "./Page/Home";
 
@@ -16,8 +15,8 @@ function App() {
     <Route path="/" exact>
       <Redirect to="/delivery" />
     </Route>
-    <HomeLayoutHOC path="/" exact component={temp}/>
     <HomeLayoutHOC path="/:type" exact component={Home}/>
+    <RestaurantLayoutHOC path="/restaurant/:id" exact component={temp}/>
     </>
     );
 }
