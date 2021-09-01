@@ -1,9 +1,12 @@
 import React from 'react';
-
-
+import {TiStarFullOutline} from "react-icons/ti";
+import {RiDirectionLine, RiShareForwardLine} from "react-icons/ri";
+import {BiBookmarkPlus} from "react-icons/bi";
 //components
 import RestaurantNavbar from "../Components/Navbar/restaurantNavbar";
 import ImageGrid from '../Components/restaurant/ImageGrid';
+import InfoButtons from '../Components/restaurant/InfoButtons';
+import RestaurantInfo from '../Components/restaurant/RestaurantInfo';
 
 
 const RestaurantLayout = () => {
@@ -18,7 +21,31 @@ const RestaurantLayout = () => {
               "https://b.zmtcdn.com/data/pictures/chains/6/18853706/f6b98540ce7479066d5a1bcea73927a7.jpg?output-format=webp",
               "https://b.zmtcdn.com/data/pictures/chains/6/18853706/f6b98540ce7479066d5a1bcea73927a7.jpg?output-format=webp",
               "https://b.zmtcdn.com/data/pictures/chains/6/18853706/f6b98540ce7479066d5a1bcea73927a7.jpg?output-format=webp"]}/>
-       </div>
+      
+      <RestaurantInfo 
+      name="Brahma Brews" 
+      restaurantRating="3.5" 
+      deliveryRating="3.2" 
+      cuisine="Bar Food, Asian, Italian, North Indian, Fast Food, European, South Indian" 
+      address="JP Nagar, Bangalore"/>
+      
+      <div className="my-4 flex flex-wrap gap-3">
+      <InfoButtons isActive>
+      <TiStarFullOutline /> Add Review 
+        </InfoButtons>
+        <InfoButtons>
+      <RiDirectionLine /> Direction
+        </InfoButtons>
+        <InfoButtons>
+      <BiBookmarkPlus /> Bokkmark
+        </InfoButtons>
+        <InfoButtons>
+      <RiShareForwardLine /> Share
+        </InfoButtons>
+
+      </div>
+
+    </div>
     </>    
     );
 };
