@@ -3,13 +3,13 @@ import { Link, useParams } from  "react-router-dom";
 import { IoMdArrowDropright } from "react-icons/io"
 import Slider from "react-slick";
 import ReactStars from "react-rating-stars-component";
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
 //components
 import MenuCollection from '../../Components/restaurant/MenuCollection';
 import MenuSimilarRestaurantCard from '../../Components/restaurant/MenuSimilarRestaurantCard';
 import { NextArrow, PrevArrow } from '../../Components/CarousalArrow';
 import ReviewCard from '../../Components/restaurant/Reviews/reviewCard';
+import MapView from '../../Components/restaurant/MapView';
 
 
 const Overview = () => {
@@ -113,6 +113,15 @@ const Overview = () => {
                             activeColor="#ffd700"
                           />
                   </div>
+
+                  <div className="my-4 w-full md:hidden flex flex-col gap-4">
+                  <MapView 
+               title="Brahma Brews" 
+               phno="+917483191358" 
+               mapLocation={[12.922265019201095, 77.62081506151557]} 
+               address="Opposite Brigade Palm Springs, 24th Main, 7th Phase, JP Nagar, Bangalore"/>
+                  </div>
+
                  <div className="my-4 flex flex-col gap-4">
                    <ReviewCard />
                    <ReviewCard />
@@ -121,36 +130,12 @@ const Overview = () => {
               </div>
                <aside 
                  style={{ height: "fit-content" }}
-                 className="hidden md:block md:w-4/12 sticky top-2 bg-white p-3 shadow-md rounded-xl">
-
-                <div>
-                   <h4 className="text-xl font-medium">Call</h4> 
-                   <h5 className="text-zomato-400 font-medium">+918040999755</h5>
-                </div>
-
-                <div>
-                    <h4 className="text-xl font-medium">Direction</h4>
-                   <div className="w-full h-48">
-                   <MapContainer 
-                    center={[13.047253518318412, 77.60755942748578]} 
-                    zoom={13} 
-                    scrollWheelZoom={false}>
-
-                    <TileLayer
-                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    />
-
-                    <Marker 
-                    position={[13.047253518318412, 77.60755942748578]}>
-                     <Popup>
-                       A pretty CSS3 popup. <br /> Easily customizable.
-                    </Popup>
-                   </Marker>
-                 </MapContainer> 
-                   </div>
-                </div>
-
+                 className="hidden md:flex md:w-4/12 sticky top-2 bg-white p-3 shadow-md rounded-xl flex flex-col gap-4">
+               <MapView 
+               title="Brahma Brews" 
+               phno="+917483191358" 
+               mapLocation={[12.922265019201095, 77.62081506151557]} 
+               address="Opposite Brigade Palm Springs, 24th Main, 7th Phase, JP Nagar, Bangalore"/>
                </aside>
         </div>  
         </>
