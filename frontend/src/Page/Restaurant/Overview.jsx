@@ -45,9 +45,10 @@ const Overview = () => {
                   </Link>
                   </div>
                   <div className="flex flex-wrap gap-3">
-                  <MenuCollection menuTitle="Menu" 
+                  <MenuCollection 
+                  menuTitle="Menu" 
                    pages="3"
-                   image="https://b.zmtcdn.com/data/menus/057/18551057/00345df375950eb5612b464124aed584.jpg?fit=around%7C200%3A200"
+                   image={["https://b.zmtcdn.com/data/menus/057/18551057/00345df375950eb5612b464124aed584.jpg?fit=around%7C200%3A200",]}
                  /> </div>
 
                   <h4 className="text-lg font-medium my-4">

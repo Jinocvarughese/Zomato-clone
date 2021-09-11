@@ -50,29 +50,6 @@ const OrderOnline = () => {
                    },
                   ]}
                  />
-
-                <FoodList 
-                 title="Pizza" 
-                 items={[
-                   {
-                    price:"1000",
-                    rating:"3",
-                    title:"Charcoal Mushrom Tikka",
-                    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo eaque necessitatibus placeat explicabo doloribus, dolor minus odio esse officia similique dignissimos incidunt dolores praesentium mollitia quasi non aspernatur qui nisi?",
-                     image:
-                     "https://b.zmtcdn.com/data/dish_photos/18d/8d50ef0f0707cfcef27aabcf9773518d.jpg?fit=around|130:130&crop=130:130;*,*"
-                   },
-                   
-                   {
-                    price:"1000",
-                    rating:"3",
-                    title:"Charcoal Mushrom Tikka",
-                    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo eaque necessitatibus placeat explicabo doloribus, dolor minus odio esse officia similique dignissimos incidunt dolores praesentium mollitia quasi non aspernatur qui nisi?",
-                     image:
-                     "https://b.zmtcdn.com/data/dish_photos/18d/8d50ef0f0707cfcef27aabcf9773518d.jpg?fit=around|130:130&crop=130:130;*,*"
-                   },
-                  ]}
-                 />
  
               </section>
             </div>
